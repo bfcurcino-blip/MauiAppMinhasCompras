@@ -29,6 +29,20 @@ Também foi utilizada uma classe para representar os produtos e uma classe respo
 
 Foram realizados testes de cadastro e listagem para verificar o funcionamento do aplicativo. Durante os testes, os produtos foram cadastrados e exibidos corretamente na tela de listagem.
 
+## Imagens do projeto
+
+### Aplicativo em funcionamento
+
+Tela de listagem dos produtos cadastrados.
+
+![Listagem dos produtos](Captura%20de%20tela%202026-08-15%20173408.png)
+
+### Desenvolvimento no Visual Studio
+
+Código utilizado para realizar a validação e o cadastro dos produtos.
+
+![Código de cadastro dos produtos](Captura%20de%20tela%202026-08-15%20172036.png)
+
 ## Autora
 
 Bianca da Silva Fernandes Curcino
