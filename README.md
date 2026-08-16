@@ -2,7 +2,7 @@
 
 Aplicativo desenvolvido em .NET MAUI utilizando o Visual Studio e banco de dados SQLite.
 
-O projeto foi desenvolvido como atividade prática da disciplina de Desenvolvimento de Sistemas III, com o objetivo de colocar em prática os conteúdos estudados durante a disciplina.
+O projeto foi desenvolvido como parte da atividade da Agenda 02, da disciplina de Desenvolvimento de Sistemas III, do Módulo 3 do curso de Desenvolvimento de Sistemas, com o objetivo de colocar em prática o conteúdo estudado na disciplina.
 
 ## Funcionalidades
 
