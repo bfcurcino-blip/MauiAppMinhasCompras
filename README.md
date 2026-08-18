@@ -40,15 +40,23 @@ Foram realizados testes de cadastro, listagem e edição para verificar o funcio
 
 ### Aplicativo em funcionamento
 
-Tela de listagem dos produtos cadastrados.
+#### Cadastro de produto
 
-![Listagem dos produtos](Captura%20de%20tela%202026-08-15%20173408.png)
+Tela utilizada para cadastrar um novo produto, informando descrição, quantidade e preço.
 
-### Desenvolvimento no Visual Studio
+![Cadastro de produto](Captura%20de%20tela%202026-08-18%20133718.png)
 
-Código utilizado para realizar a validação e o cadastro dos produtos.
+#### Edição de produto
 
-![Código de cadastro dos produtos](Captura%20de%20tela%202026-08-15%20172036.png)
+Tela utilizada para alterar as informações de um produto já cadastrado.
+
+![Edição de produto](Captura%20de%20tela%202026-08-18%20133857.png)
+
+#### Produto atualizado
+
+Após a edição, o produto é atualizado e exibido novamente na tela de listagem.
+
+![Produto atualizado](Captura%20de%20tela%202026-08-18%20133944.png)
 
 ## Autora
 
