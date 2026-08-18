@@ -6,10 +6,17 @@ O projeto foi desenvolvido como parte da atividade da Agenda 02, da disciplina d
 
 ## Funcionalidades
 
-- Cadastro de produtos;
-- Armazenamento dos produtos no banco de dados SQLite;
-- Listagem dos produtos cadastrados;
-- Validação das informações antes do cadastro.
+O aplicativo permite:
+- Cadastrar novos produtos, informando descrição, quantidade e preço;
+- Armazenar os dados utilizando SQLite;
+- Visualizar os produtos cadastrados em uma lista;
+- Selecionar um produto já cadastrado;
+- Editar as informações do produto;
+- Salvar as alterações realizadas e atualizar a listagem.
+
+## Atualização do projeto
+
+Após a primeira versão, foi implementada a funcionalidade de edição de produtos. Ao selecionar um item na tela de listagem, o aplicativo abre a tela Editar Produto, permitindo alterar a descrição, a quantidade e o preço. Após salvar, os dados são atualizados no banco SQLite e exibidos novamente na listagem.
 
 ## Tecnologias utilizadas
 
@@ -21,27 +28,35 @@ O projeto foi desenvolvido como parte da atividade da Agenda 02, da disciplina d
 
 ## Estrutura do projeto
 
-O projeto possui uma tela para cadastrar novos produtos, informando descrição, quantidade e preço, e uma tela para visualizar os produtos cadastrados.
+O projeto possui uma tela para cadastrar novos produtos, informando descrição, quantidade e preço, uma tela para visualizar os produtos cadastrados e uma tela para editar as informações dos produtos já existentes.
 
 Também foi utilizada uma classe para representar os produtos e uma classe responsável pela comunicação com o banco de dados SQLite.
 
 ## Testes
 
-Foram realizados testes de cadastro e listagem para verificar o funcionamento do aplicativo. Durante os testes, os produtos foram cadastrados e exibidos corretamente na tela de listagem.
+Foram realizados testes de cadastro, listagem e edição para verificar o funcionamento do aplicativo. Durante os testes, os produtos foram cadastrados e exibidos corretamente na tela de listagem. Também foi realizada a alteração da quantidade de um produto já cadastrado, confirmando que as informações foram atualizadas corretamente no banco de dados e exibidas novamente na listagem.
 
 ## Imagens do projeto
 
 ### Aplicativo em funcionamento
 
-Tela de listagem dos produtos cadastrados.
+#### Cadastro de produto
 
-![Listagem dos produtos](Captura%20de%20tela%202026-08-15%20173408.png)
+Tela utilizada para cadastrar um novo produto, informando descrição, quantidade e preço.
 
-### Desenvolvimento no Visual Studio
+![Cadastro de produto](Captura%20de%20tela%202026-08-18%20133718.png)
 
-Código utilizado para realizar a validação e o cadastro dos produtos.
+#### Edição de produto
 
-![Código de cadastro dos produtos](Captura%20de%20tela%202026-08-15%20172036.png)
+Tela utilizada para alterar as informações de um produto já cadastrado.
+
+![Edição de produto](Captura%20de%20tela%202026-08-18%20133857.png)
+
+#### Produto atualizado
+
+Após a edição, o produto é atualizado e exibido novamente na tela de listagem.
+
+![Produto atualizado](Captura%20de%20tela%202026-08-18%20133944.png)
 
 ## Autora
 
