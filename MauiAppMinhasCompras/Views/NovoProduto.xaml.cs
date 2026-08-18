@@ -37,14 +37,7 @@ public partial class NovoProduto : ContentPage
             Preco = preco
         };
 
-        string dbPath = Path.Combine(
-            FileSystem.AppDataDirectory,
-            "minhascompras.db3"
-        );
-
-        SQLiteDatabaseHelper db = new SQLiteDatabaseHelper(dbPath);
-
-        await db.Insert(produto);
+        await App.Db.Insert(produto);
 
         await DisplayAlertAsync("Sucesso", "Produto cadastrado!", "OK");
 

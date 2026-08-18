@@ -1,4 +1,3 @@
-using MauiAppMinhasCompras.Helpers;
 using MauiAppMinhasCompras.Models;
 
 namespace MauiAppMinhasCompras.Views;
@@ -14,14 +13,7 @@ public partial class ListaProduto : ContentPage
     {
         base.OnAppearing();
 
-        string dbPath = Path.Combine(
-            FileSystem.AppDataDirectory,
-            "minhascompras.db3"
-        );
-
-        SQLiteDatabaseHelper db = new SQLiteDatabaseHelper(dbPath);
-
-        lista_produtos.ItemsSource = await db.GetAll();
+        lista_produtos.ItemsSource = await App.Db.GetAll();
     }
 
     private async void btn_novo_Clicked(object sender, EventArgs e)

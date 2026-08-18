@@ -42,14 +42,7 @@ public partial class EditarProduto : ContentPage
         produto.Quantidade = quantidade;
         produto.Preco = preco;
 
-        string dbPath = Path.Combine(
-            FileSystem.AppDataDirectory,
-            "minhascompras.db3"
-        );
-
-        SQLiteDatabaseHelper db = new SQLiteDatabaseHelper(dbPath);
-
-        await db.Update(produto);
+        await App.Db.Update(produto);
 
         await DisplayAlertAsync("Sucesso", "Produto atualizado!", "OK");
 
