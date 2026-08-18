@@ -1,0 +1,58 @@
+using MauiAppMinhasCompras.Models;
+using MauiAppMinhasCompras.Helpers;
+
+namespace MauiAppMinhasCompras.Views;
+
+public partial class EditarProduto : ContentPage
+{
+    Produto produto;
+
+    public EditarProduto(Produto produtoSelecionado)
+    {
+        InitializeComponent();
+
+        produto = produtoSelecionado;
+
+        txt_descricao.Text = produto.Descricao;
+        txt_quantidade.Text = produto.Quantidade.ToString();
+        txt_preco.Text = produto.Preco.ToString();
+    }
+
+    private async void ToolbarItem_Clicked(object sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(txt_descricao.Text))
+        {
+            await DisplayAlertAsync("Atenção", "Digite a descrição do produto.", "OK");
+            return;
+        }
+
+        if (!double.TryParse(txt_quantidade.Text, out double quantidade))
+        {
+            await DisplayAlertAsync("Atenção", "Digite uma quantidade válida.", "OK");
+            return;
+        }
+
+        if (!double.TryParse(txt_preco.Text, out double preco))
+        {
+            await DisplayAlertAsync("Atenção", "Digite um preço válido.", "OK");
+            return;
+        }
+
+        produto.Descricao = txt_descricao.Text;
+        produto.Quantidade = quantidade;
+        produto.Preco = preco;
+
+        string dbPath = Path.Combine(
+            FileSystem.AppDataDirectory,
+            "minhascompras.db3"
+        );
+
+        SQLiteDatabaseHelper db = new SQLiteDatabaseHelper(dbPath);
+
+        await db.Update(produto);
+
+        await DisplayAlertAsync("Sucesso", "Produto atualizado!", "OK");
+
+        await Navigation.PopAsync();
+    }
+}

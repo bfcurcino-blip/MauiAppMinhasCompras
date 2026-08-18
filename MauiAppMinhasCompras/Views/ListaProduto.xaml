@@ -18,7 +18,9 @@
         Clicked="btn_novo_Clicked" />
 
         <CollectionView
-        x:Name="lista_produtos">
+        x:Name="lista_produtos"
+        SelectionMode="Single"
+        SelectionChanged="lista_produtos_SelectionChanged">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
