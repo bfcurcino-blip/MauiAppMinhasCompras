@@ -6,10 +6,17 @@ O projeto foi desenvolvido como parte da atividade da Agenda 02, da disciplina d
 
 ## Funcionalidades
 
-- Cadastro de produtos;
-- Armazenamento dos produtos no banco de dados SQLite;
-- Listagem dos produtos cadastrados;
-- Validação das informações antes do cadastro.
+O aplicativo permite:
+- Cadastrar novos produtos, informando descrição, quantidade e preço;
+- Armazenar os dados utilizando SQLite;
+- Visualizar os produtos cadastrados em uma lista;
+- Selecionar um produto já cadastrado;
+- Editar as informações do produto;
+- Salvar as alterações realizadas e atualizar a listagem.
+
+## Atualização do projeto
+
+Após a primeira versão, foi implementada a funcionalidade de edição de produtos. Ao selecionar um item na tela de listagem, o aplicativo abre a tela Editar Produto, permitindo alterar a descrição, a quantidade e o preço. Após salvar, os dados são atualizados no banco SQLite e exibidos novamente na listagem.
 
 ## Tecnologias utilizadas
 
@@ -21,13 +28,13 @@ O projeto foi desenvolvido como parte da atividade da Agenda 02, da disciplina d
 
 ## Estrutura do projeto
 
-O projeto possui uma tela para cadastrar novos produtos, informando descrição, quantidade e preço, e uma tela para visualizar os produtos cadastrados.
+O projeto possui uma tela para cadastrar novos produtos, informando descrição, quantidade e preço, uma tela para visualizar os produtos cadastrados e uma tela para editar as informações dos produtos já existentes.
 
 Também foi utilizada uma classe para representar os produtos e uma classe responsável pela comunicação com o banco de dados SQLite.
 
 ## Testes
 
-Foram realizados testes de cadastro e listagem para verificar o funcionamento do aplicativo. Durante os testes, os produtos foram cadastrados e exibidos corretamente na tela de listagem.
+Foram realizados testes de cadastro, listagem e edição para verificar o funcionamento do aplicativo. Durante os testes, os produtos foram cadastrados e exibidos corretamente na tela de listagem. Também foi realizada a alteração da quantidade de um produto já cadastrado, confirmando que as informações foram atualizadas corretamente no banco de dados e exibidas novamente na listagem.
 
 ## Imagens do projeto
 
