@@ -17,6 +17,11 @@
         Text="Novo Produto"
         Clicked="btn_novo_Clicked" />
 
+        <SearchBar
+        x:Name="searchBar"
+        Placeholder="Digite o produto para buscar"
+        TextChanged="searchBar_TextChanged" />
+
         <CollectionView
         x:Name="lista_produtos"
         SelectionMode="Single"
