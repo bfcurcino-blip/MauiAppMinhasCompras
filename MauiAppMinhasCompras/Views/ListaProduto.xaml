@@ -2,53 +2,65 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppMinhasCompras.Views.ListaProduto"
-             Title="ListaProduto">
+             Title="ListaProduto"
+             BackgroundColor="#F7F1E8">
+
     <VerticalStackLayout
-    Padding="20"
-    Spacing="15">
+        Padding="20"
+        Spacing="15">
 
         <Label
-        Text="Meus Produtos"
-        FontSize="24"
-        FontAttributes="Bold"
-        HorizontalOptions="Center" />
+            Text="Meus Produtos"
+            FontSize="24"
+            FontAttributes="Bold"
+            TextColor="#6E4A8E"
+            HorizontalOptions="Center" />
 
         <Button
-        Text="Novo Produto"
-        Clicked="btn_novo_Clicked" />
+            Text="Novo Produto"
+            BackgroundColor="#B58AD6"
+            TextColor="White"
+            CornerRadius="10"
+            Clicked="btn_novo_Clicked" />
 
         <SearchBar
-        x:Name="searchBar"
-        Placeholder="Digite o produto para buscar"
-        TextChanged="searchBar_TextChanged" />
+            x:Name="searchBar"
+            Placeholder="Digite o produto para buscar"
+            BackgroundColor="#F1E6F7"
+            TextColor="#3D3D3D"
+            PlaceholderColor="#7A6A80"
+            TextChanged="searchBar_TextChanged" />
 
         <CollectionView
-        x:Name="lista_produtos"
-        SelectionMode="Single"
-        SelectionChanged="lista_produtos_SelectionChanged">
+            x:Name="lista_produtos"
+            SelectionMode="Single"
+            SelectionChanged="lista_produtos_SelectionChanged">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
 
                     <Grid
-                    Padding="10"
-                    ColumnDefinitions="*,Auto,Auto"
-                    ColumnSpacing="15">
+                        Padding="10"
+                        ColumnDefinitions="*,Auto,Auto"
+                        ColumnSpacing="15">
 
                         <Label
-                        Text="{Binding Descricao}"
-                        FontAttributes="Bold"
-                        VerticalOptions="Center" />
+                            Text="{Binding Descricao}"
+                            FontAttributes="Bold"
+                            TextColor="#3D3D3D"
+                            VerticalOptions="Center" />
 
                         <Label
-                        Grid.Column="1"
-                        Text="{Binding Quantidade}"
-                        VerticalOptions="Center" />
+                            Grid.Column="1"
+                            Text="{Binding Quantidade}"
+                            TextColor="#5F5365"
+                            VerticalOptions="Center" />
 
                         <Label
-                        Grid.Column="2"
-                        Text="{Binding Preco}"
-                        VerticalOptions="Center" />
+                            Grid.Column="2"
+                            Text="{Binding Preco}"
+                            TextColor="#5F5365"
+                            VerticalOptions="Center" />
 
                     </Grid>
 
