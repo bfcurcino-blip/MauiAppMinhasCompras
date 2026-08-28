@@ -11,6 +11,7 @@ O aplicativo permite:
 - Validar as informações preenchidas antes do cadastro;
 - Armazenar os dados utilizando SQLite;
 - Visualizar os produtos cadastrados em uma lista;
+- Pesquisar produtos pelo nome utilizando busca dinâmica;
 - Selecionar um produto já cadastrado;
 - Editar as informações do produto;
 - Salvar as alterações realizadas e atualizar a listagem;
@@ -46,6 +47,16 @@ EditarProduto.xaml.cs utiliza App.Db.Update(produto) para atualizar os produtos.
 
 Com essa alteração, não é mais necessário criar uma nova instância da classe SQLiteDatabaseHelper em cada uma dessas telas.
 
+### Agenda 04
+
+Na Agenda 04 foi implementada a funcionalidade de busca dinâmica de produtos.
+
+Foi adicionado um SearchBar na tela de listagem, permitindo pesquisar os produtos pelo nome. A busca acontece em tempo real por meio do evento TextChanged, ou seja, conforme o usuário digita, a lista é atualizada automaticamente mostrando apenas os produtos correspondentes à pesquisa.
+
+Também foi utilizada uma ObservableCollection para armazenar os produtos e atualizar a interface de acordo com os resultados da busca.
+
+Durante os testes, foi possível pesquisar parte do nome de um produto e visualizar somente os resultados correspondentes. Ao limpar o campo de pesquisa, todos os produtos voltam a ser exibidos.
+
 ## Tecnologias utilizadas
 
 - .NET MAUI
@@ -72,12 +83,14 @@ Durante os testes foi possível:
 
 - Cadastrar novos produtos;
 - Visualizar os produtos cadastrados na tela de listagem;
+- Pesquisar produtos pelo nome e visualizar a lista sendo filtrada em tempo real;
+- Limpar o campo de pesquisa e visualizar novamente todos os produtos cadastrados;
 - Validar campos obrigatórios antes do cadastro;
 - Selecionar e editar um produto já cadastrado;
 - Salvar as alterações e visualizar os novos dados na listagem;
 - Fechar e abrir novamente o aplicativo, confirmando que os produtos permanecem armazenados no banco de dados SQLite;
-- Compilar o projeto após as alterações da Agenda 03 sem apresentar erros.
-
+- Compilar o projeto após as alterações realizadas sem apresentar erros.
+  
 ## Imagens do projeto
 
 ### Aplicativo em funcionamento
@@ -99,6 +112,18 @@ Tela utilizada para alterar as informações de um produto já cadastrado.
 Após a edição, o produto é atualizado e exibido novamente na tela de listagem.
 
 ![Produto atualizado](Captura%20de%20tela%202026-08-18%20133944.png)
+
+#### Busca dinâmica de produtos
+
+Tela de listagem com todos os produtos cadastrados e o campo de pesquisa.
+
+![Lista completa de produtos](busca-produtos-lista-completa.png)
+
+#### Pesquisa de produto
+
+Ao digitar parte do nome do produto, a lista é atualizada em tempo real, exibindo apenas os resultados correspondentes.
+
+![Busca dinâmica de produtos](busca-produtos-filtrada.png)
 
 ## Autora
 
