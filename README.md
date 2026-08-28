@@ -2,21 +2,49 @@
 
 Aplicativo desenvolvido em .NET MAUI utilizando o Visual Studio e banco de dados SQLite.
 
-O projeto foi desenvolvido como parte da atividade da Agenda 02, da disciplina de Desenvolvimento de Sistemas III, do Módulo 3 do curso de Desenvolvimento de Sistemas, com o objetivo de colocar em prática o conteúdo estudado na disciplina.
+O projeto está sendo desenvolvido ao longo das atividades da disciplina de Desenvolvimento de Sistemas III, do Módulo 3 do curso de Desenvolvimento de Sistemas, com o objetivo de colocar em prática os conteúdos estudados na disciplina.
 
 ## Funcionalidades
 
 O aplicativo permite:
 - Cadastrar novos produtos, informando descrição, quantidade e preço;
+- Validar as informações preenchidas antes do cadastro;
 - Armazenar os dados utilizando SQLite;
 - Visualizar os produtos cadastrados em uma lista;
 - Selecionar um produto já cadastrado;
 - Editar as informações do produto;
-- Salvar as alterações realizadas e atualizar a listagem.
+- Salvar as alterações realizadas e atualizar a listagem;
+- Manter os produtos armazenados mesmo após fechar e abrir novamente o aplicativo.
 
 ## Atualização do projeto
 
-Após a primeira versão, foi implementada a funcionalidade de edição de produtos. Ao selecionar um item na tela de listagem, o aplicativo abre a tela Editar Produto, permitindo alterar a descrição, a quantidade e o preço. Após salvar, os dados são atualizados no banco SQLite e exibidos novamente na listagem.
+### Agenda 02
+
+Na Agenda 02 foram desenvolvidas as principais funcionalidades do aplicativo.
+
+Foi criada a tela de listagem dos produtos, a tela de cadastro de novos produtos e a tela de edição.
+
+Também foi implementada a comunicação com o banco de dados SQLite, permitindo cadastrar, listar e atualizar os produtos.
+
+Ao selecionar um item na tela de listagem, o aplicativo abre a tela Editar Produto, permitindo alterar a descrição, a quantidade e o preço. Após salvar, os dados são atualizados no banco SQLite e exibidos novamente na listagem.
+
+### Agenda 03
+
+Na Agenda 03 foi realizada uma atualização na forma como o aplicativo acessa o banco de dados SQLite.
+
+No arquivo App.xaml.cs, foi criado um acesso centralizado ao banco utilizando o padrão Singleton. Dessa forma, o aplicativo reutiliza uma única instância da classe SQLiteDatabaseHelper durante sua execução.
+
+O acesso ao banco passou a ser realizado por meio da propriedade:
+
+App.Db
+
+As telas também foram atualizadas para utilizar esse acesso centralizado:
+
+NovoProduto.xaml.cs utiliza App.Db.Insert(produto) para cadastrar novos produtos;
+ListaProduto.xaml.cs utiliza App.Db.GetAll() para carregar os produtos cadastrados;
+EditarProduto.xaml.cs utiliza App.Db.Update(produto) para atualizar os produtos.
+
+Com essa alteração, não é mais necessário criar uma nova instância da classe SQLiteDatabaseHelper em cada uma dessas telas.
 
 ## Tecnologias utilizadas
 
@@ -25,16 +53,30 @@ Após a primeira versão, foi implementada a funcionalidade de edição de produ
 - XAML
 - SQLite
 - Visual Studio
+- Git
+- GitHub
 
 ## Estrutura do projeto
 
 O projeto possui uma tela para cadastrar novos produtos, informando descrição, quantidade e preço, uma tela para visualizar os produtos cadastrados e uma tela para editar as informações dos produtos já existentes.
 
-Também foi utilizada uma classe para representar os produtos e uma classe responsável pela comunicação com o banco de dados SQLite.
+Também foi utilizada a classe Produto para representar os dados dos produtos e a classe SQLiteDatabaseHelper para realizar as operações com o banco de dados SQLite.
+
+O acesso ao banco de dados foi centralizado no arquivo App.xaml.cs, permitindo que as diferentes telas utilizem a mesma instância do banco durante a execução do aplicativo.
 
 ## Testes
 
-Foram realizados testes de cadastro, listagem e edição para verificar o funcionamento do aplicativo. Durante os testes, os produtos foram cadastrados e exibidos corretamente na tela de listagem. Também foi realizada a alteração da quantidade de um produto já cadastrado, confirmando que as informações foram atualizadas corretamente no banco de dados e exibidas novamente na listagem.
+Foram realizados testes para verificar o funcionamento das funcionalidades desenvolvidas.
+
+Durante os testes foi possível:
+
+- Cadastrar novos produtos;
+- Visualizar os produtos cadastrados na tela de listagem;
+- Validar campos obrigatórios antes do cadastro;
+- Selecionar e editar um produto já cadastrado;
+- Salvar as alterações e visualizar os novos dados na listagem;
+- Fechar e abrir novamente o aplicativo, confirmando que os produtos permanecem armazenados no banco de dados SQLite;
+- Compilar o projeto após as alterações da Agenda 03 sem apresentar erros.
 
 ## Imagens do projeto
 
