@@ -113,6 +113,18 @@ Após a edição, o produto é atualizado e exibido novamente na tela de listage
 
 ![Produto atualizado](Captura%20de%20tela%202026-08-18%20133944.png)
 
+#### Busca dinâmica de produtos
+
+Tela de listagem com todos os produtos cadastrados e o campo de pesquisa.
+
+![Lista completa de produtos](busca-produtos-lista-completa.png)
+
+#### Pesquisa de produto
+
+Ao digitar parte do nome do produto, a lista é atualizada em tempo real, exibindo apenas os resultados correspondentes.
+
+![Busca dinâmica de produtos](busca-produtos-filtrada.png)
+
 ## Autora
 
 Bianca da Silva Fernandes Curcino
