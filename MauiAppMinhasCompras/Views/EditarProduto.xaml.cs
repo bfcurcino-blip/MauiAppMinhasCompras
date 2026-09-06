@@ -20,32 +20,54 @@ public partial class EditarProduto : ContentPage
 
     private async void ToolbarItem_Clicked(object sender, EventArgs e)
     {
-        if (string.IsNullOrWhiteSpace(txt_descricao.Text))
+        try
         {
-            await DisplayAlertAsync("Atenção", "Digite a descrição do produto.", "OK");
-            return;
-        }
+            if (string.IsNullOrWhiteSpace(txt_descricao.Text))
+            {
+                await DisplayAlertAsync(
+                    "Atenção",
+                    "Digite a descrição do produto.",
+                    "OK");
+                return;
+            }
 
-        if (!double.TryParse(txt_quantidade.Text, out double quantidade))
+            if (!double.TryParse(txt_quantidade.Text, out double quantidade))
+            {
+                await DisplayAlertAsync(
+                    "Atenção",
+                    "Digite uma quantidade válida.",
+                    "OK");
+                return;
+            }
+
+            if (!double.TryParse(txt_preco.Text, out double preco))
+            {
+                await DisplayAlertAsync(
+                    "Atenção",
+                    "Digite um preço válido.",
+                    "OK");
+                return;
+            }
+
+            produto.Descricao = txt_descricao.Text;
+            produto.Quantidade = quantidade;
+            produto.Preco = preco;
+
+            await App.Db.Update(produto);
+
+            await DisplayAlertAsync(
+                "Sucesso",
+                "Produto atualizado!",
+                "OK");
+
+            await Navigation.PopAsync();
+        }
+        catch (Exception ex)
         {
-            await DisplayAlertAsync("Atenção", "Digite uma quantidade válida.", "OK");
-            return;
+            await DisplayAlertAsync(
+                "Ops",
+                ex.Message,
+                "OK");
         }
-
-        if (!double.TryParse(txt_preco.Text, out double preco))
-        {
-            await DisplayAlertAsync("Atenção", "Digite um preço válido.", "OK");
-            return;
-        }
-
-        produto.Descricao = txt_descricao.Text;
-        produto.Quantidade = quantidade;
-        produto.Preco = preco;
-
-        await App.Db.Update(produto);
-
-        await DisplayAlertAsync("Sucesso", "Produto atualizado!", "OK");
-
-        await Navigation.PopAsync();
     }
 }

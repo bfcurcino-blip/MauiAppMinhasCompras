@@ -41,7 +41,7 @@
 
                     <Grid
                         Padding="10"
-                        ColumnDefinitions="*,Auto,Auto"
+                        ColumnDefinitions="*,Auto,Auto,Auto"
                         ColumnSpacing="15">
 
                         <Label
@@ -61,6 +61,14 @@
                             Text="{Binding Preco}"
                             TextColor="#5F5365"
                             VerticalOptions="Center" />
+
+                        <Button
+                            Grid.Column="3"
+                            Text="Excluir"
+                            BackgroundColor="#6B4F4F"
+                            TextColor="White"
+                            Clicked="btn_excluir_Clicked"
+                            CommandParameter="{Binding .}" />
 
                     </Grid>
 

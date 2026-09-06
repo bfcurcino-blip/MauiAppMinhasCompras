@@ -6,6 +6,7 @@ namespace MauiAppMinhasCompras.Views;
 public partial class ListaProduto : ContentPage
 {
     ObservableCollection<Produto> produtos = new ObservableCollection<Produto>();
+
     public ListaProduto()
     {
         InitializeComponent();
@@ -15,16 +16,23 @@ public partial class ListaProduto : ContentPage
     {
         base.OnAppearing();
 
-        var lista = await App.Db.GetAll();
-
-        produtos.Clear();
-
-        foreach (var produto in lista)
+        try
         {
-            produtos.Add(produto);
-        }
+            var lista = await App.Db.GetAll();
 
-        lista_produtos.ItemsSource = produtos;
+            produtos.Clear();
+
+            foreach (var produto in lista)
+            {
+                produtos.Add(produto);
+            }
+
+            lista_produtos.ItemsSource = produtos;
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Ops", ex.Message, "OK");
+        }
     }
 
     private async void btn_novo_Clicked(object sender, EventArgs e)
@@ -32,16 +40,54 @@ public partial class ListaProduto : ContentPage
         await Navigation.PushAsync(new NovoProduto());
     }
 
-    private async void lista_produtos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private async void btn_excluir_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            if (sender is Button botao &&
+                botao.CommandParameter is Produto produto)
+            {
+                bool resposta = await DisplayAlert(
+                    "Confirmar exclusão",
+                    $"Deseja realmente excluir o produto {produto.Descricao}?",
+                    "Sim",
+                    "Não");
+
+                if (resposta)
+                {
+                    await App.Db.Delete(produto.Id);
+
+                    produtos.Remove(produto);
+
+                    await DisplayAlert(
+                        "Sucesso!",
+                        "Produto excluído com sucesso.",
+                        "OK");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Ops", ex.Message, "OK");
+        }
+    }
+
+    private async void lista_produtos_SelectionChanged(
+        object sender,
+        SelectionChangedEventArgs e)
     {
         if (e.CurrentSelection.FirstOrDefault() is Produto produtoSelecionado)
         {
-            await Navigation.PushAsync(new EditarProduto(produtoSelecionado));
+            await Navigation.PushAsync(
+                new EditarProduto(produtoSelecionado));
 
             lista_produtos.SelectedItem = null;
         }
     }
-    private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
+
+    private void searchBar_TextChanged(
+        object sender,
+        TextChangedEventArgs e)
     {
         string textoBusca = e.NewTextValue.ToLower();
 
