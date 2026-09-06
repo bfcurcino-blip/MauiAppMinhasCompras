@@ -57,6 +57,8 @@ Também foi utilizada uma ObservableCollection para armazenar os produtos e atua
 
 Durante os testes, foi possível pesquisar parte do nome de um produto e visualizar somente os resultados correspondentes. Ao limpar o campo de pesquisa, todos os produtos voltam a ser exibidos.
 
+Além da implementação da busca dinâmica, também foram realizadas alterações visuais na tela de listagem. Foram utilizados tons de bege e lilás no fundo, no título, no botão e no campo de pesquisa, deixando a interface mais agradável e personalizada.
+
 ## Tecnologias utilizadas
 
 - .NET MAUI
@@ -115,7 +117,7 @@ Após a edição, o produto é atualizado e exibido novamente na tela de listage
 
 #### Busca dinâmica de produtos
 
-Tela de listagem com todos os produtos cadastrados e o campo de pesquisa.
+Tela de listagem com todos os produtos cadastrados, campo de pesquisa e a nova personalização da interface em tons de bege e lilás.
 
 ![Lista completa de produtos](busca-produtos-lista-completa.png)
 
