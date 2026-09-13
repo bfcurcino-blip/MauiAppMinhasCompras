@@ -14,7 +14,7 @@ Por meio do aplicativo, é possível cadastrar produtos, visualizar os itens arm
 
 O aplicativo permite:
 
-- Cadastrar novos produtos, informando descrição, quantidade e preço;
+- Cadastrar novos produtos, informando descrição, categoria, quantidade e preço;
 - Validar as informações preenchidas antes do cadastro;
 - Armazenar os dados utilizando SQLite;
 - Visualizar os produtos cadastrados em uma lista;
@@ -26,6 +26,9 @@ O aplicativo permite:
 - Solicitar confirmação antes da exclusão;
 - Exibir mensagens de sucesso após determinadas operações;
 - Tratar erros e exceções durante operações do aplicativo;
+- Filtrar os produtos por categoria;
+- Exibir somente os produtos da categoria selecionada;
+- Calcular e exibir o total gasto por categoria;
 - Manter os produtos armazenados mesmo após fechar e abrir novamente o aplicativo.
 
 ## Evolução do projeto
@@ -84,6 +87,20 @@ A edição de produtos também recebeu tratamento de exceções. O usuário pode
 
 Nesta etapa também foi realizada a padronização visual das telas **Lista de Produtos**, **Novo Produto** e **Editar Produto**, utilizando uma paleta em tons de bege, lilás e marrom.
 
+### Agenda 06
+
+Na Agenda 06 foi implementada uma nova funcionalidade para gerar um relatório de compras por categoria.
+
+Foi adicionado o campo **Categoria** ao modelo `Produto`, permitindo classificar os itens cadastrados, como alimentos, higiene, limpeza, lanches, entre outras categorias.
+
+A tela **Novo Produto** também foi atualizada com um campo para informar a categoria no momento do cadastro. Essa informação é armazenada junto com os demais dados do produto.
+
+Na tela **Lista de Produtos**, foi adicionado um `Picker` que permite selecionar uma das categorias cadastradas. Ao selecionar uma categoria, a listagem é filtrada automaticamente, exibindo somente os produtos pertencentes à categoria escolhida.
+
+Também foi implementado o cálculo do total gasto na categoria selecionada. O aplicativo considera a quantidade e o preço de cada produto e apresenta o valor total correspondente.
+
+Durante os testes, foi cadastrado o produto **Biscoito**, na categoria **lanche**, com quantidade 5 e preço de R$ 3,49. Ao selecionar essa categoria no filtro, o aplicativo exibiu somente o produto correspondente e calculou o total de **R$ 17,45**.
+
 ## Tecnologias utilizadas
 
 - .NET MAUI
@@ -98,8 +115,8 @@ Nesta etapa também foi realizada a padronização visual das telas **Lista de P
 
 O projeto possui três telas principais:
 
-- **Novo Produto:** permite cadastrar descrição, quantidade e preço;
-- **Lista de Produtos:** apresenta os produtos cadastrados, pesquisa dinâmica e opção de exclusão;
+- **Novo Produto:** permite cadastrar descrição, categoria, quantidade e preço;
+- **Lista de Produtos:** apresenta os produtos cadastrados, pesquisa dinâmica, filtro por categoria, total gasto por categoria e opção de exclusão;
 - **Editar Produto:** permite modificar as informações de um produto existente.
 
 A classe `Produto` representa os dados armazenados, enquanto a classe `SQLiteDatabaseHelper` é responsável pelas operações realizadas no banco de dados SQLite.
@@ -122,6 +139,10 @@ Durante o desenvolvimento foram realizados testes para verificar:
 - Exibição de mensagens de confirmação e sucesso;
 - Persistência dos dados após fechar e abrir o aplicativo;
 - Tratamento de possíveis exceções;
+- Cadastro de produtos com categoria;
+- Filtro dos produtos por categoria;
+- Exibição somente dos produtos da categoria selecionada;
+- Cálculo do total gasto por categoria;
 - Compilação do projeto sem erros.
 
 ## Imagens do projeto
@@ -171,6 +192,18 @@ Após a confirmação da exclusão, o aplicativo apresenta uma mensagem informan
 ### Lista atualizada
 
 Após as operações de cadastro, edição e exclusão, a tela principal apresenta os dados atualizados armazenados no banco de dados.
+
+### Cadastro de produto com categoria
+
+A tela de cadastro foi atualizada com o campo **Categoria**, permitindo classificar o produto no momento do cadastro.
+
+![Cadastro com categoria](cadastro-categoria.png)
+
+### Relatório de compras por categoria
+
+Ao selecionar uma categoria, o aplicativo exibe somente os produtos correspondentes e calcula o total gasto. No teste realizado, a categoria **lanche** apresentou o produto Biscoito e o total de **R$ 17,45**.
+
+![Relatório por categoria](relatorio-categoria.png)
 
 ![Lista atualizada](lista-produtos-atualizada.png)
 ## 👩‍💻 Autora
