@@ -26,6 +26,13 @@
             PlaceholderColor="#7A6A80" />
 
         <Entry
+            x:Name="txt_categoria"
+            Placeholder="Categoria"
+            BackgroundColor="#F1E6F7"
+            TextColor="#3D3D3D"
+            PlaceholderColor="#7A6A80" />
+
+        <Entry
             x:Name="txt_quantidade"
             Placeholder="Quantidade"
             Keyboard="Numeric"

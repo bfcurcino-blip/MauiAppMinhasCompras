@@ -18,6 +18,12 @@ public partial class NovoProduto : ContentPage
             return;
         }
 
+        if (string.IsNullOrWhiteSpace(txt_categoria.Text))
+        {
+            await DisplayAlertAsync("Atenção", "Digite a categoria do produto.", "OK");
+            return;
+        }
+
         if (!double.TryParse(txt_quantidade.Text, out double quantidade))
         {
             await DisplayAlertAsync("Atenção", "Digite uma quantidade válida.", "OK");
@@ -33,6 +39,7 @@ public partial class NovoProduto : ContentPage
         Produto produto = new Produto
         {
             Descricao = txt_descricao.Text,
+            Categoria = txt_categoria.Text,
             Quantidade = quantidade,
             Preco = preco
         };
@@ -42,6 +49,7 @@ public partial class NovoProduto : ContentPage
         await DisplayAlertAsync("Sucesso", "Produto cadastrado!", "OK");
 
         txt_descricao.Text = "";
+        txt_categoria.Text = "";
         txt_quantidade.Text = "";
         txt_preco.Text = "";
  

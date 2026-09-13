@@ -28,6 +28,14 @@ public partial class ListaProduto : ContentPage
             }
 
             lista_produtos.ItemsSource = produtos;
+
+            var categorias = produtos
+                .Where(p => !string.IsNullOrWhiteSpace(p.Categoria))
+                .Select(p => p.Categoria)
+                .Distinct()
+                .ToList();
+
+            picker_categoria.ItemsSource = categorias;
         }
         catch (Exception ex)
         {
@@ -96,5 +104,24 @@ public partial class ListaProduto : ContentPage
             .ToList();
 
         lista_produtos.ItemsSource = produtosFiltrados;
+    }
+
+    private void picker_categoria_SelectedIndexChanged(
+    object sender,
+    EventArgs e)
+    {
+        if (picker_categoria.SelectedItem is string categoriaSelecionada)
+        {
+            var produtosFiltrados = produtos
+                .Where(p => p.Categoria == categoriaSelecionada)
+                .ToList();
+
+            lista_produtos.ItemsSource = produtosFiltrados;
+
+            double totalCategoria = produtosFiltrados
+    .Sum(p => p.Quantidade * p.Preco);
+
+            lbl_total_categoria.Text = $"Total da categoria: R$ {totalCategoria:F2}";
+        }
     }
 }
