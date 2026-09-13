@@ -193,6 +193,8 @@ Após a confirmação da exclusão, o aplicativo apresenta uma mensagem informan
 
 Após as operações de cadastro, edição e exclusão, a tela principal apresenta os dados atualizados armazenados no banco de dados.
 
+![Lista atualizada](lista-produtos-atualizada.png)
+
 ### Cadastro de produto com categoria
 
 A tela de cadastro foi atualizada com o campo **Categoria**, permitindo classificar o produto no momento do cadastro.
@@ -205,7 +207,6 @@ Ao selecionar uma categoria, o aplicativo exibe somente os produtos corresponden
 
 ![Relatório por categoria](relatorio-categoria.png)
 
-![Lista atualizada](lista-produtos-atualizada.png)
 ## 👩‍💻 Autora
 
 Bianca da Silva Fernandes Curcino
